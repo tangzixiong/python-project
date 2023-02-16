@@ -74,8 +74,8 @@ import requests
 r = requests.get('https://www.baidu.com/')
 print(type(r))
 print(r.status_code)
-print(type(r.txt))
-print(r.txt)
+print(type(r.text))
+print(r.text)
 print(r.cookies)
 
 
@@ -83,8 +83,8 @@ print('\n=================================================5=====================
 
 
 import requests
-try:
-    r = requests.get('http://httpbin.org/get')
-    print(r.text)
-except Exception as e:
-    print('请求失败')
+# try:
+r = requests.get('http://httpbin.org/get')
+print(r.text)
+# except Exception as e:
+#     print(e)
