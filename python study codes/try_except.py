@@ -168,3 +168,72 @@ try:
 except MyError as e:
     print(e)                            #打印：自定义错误信息
 
+print('\n----------------------------------9----------------------------------------\n')
+
+##python通过 traceback 对象跟踪异常，记录程序发生异常时有关函数调用的堆栈信息
+
+""" 
+import traceback                    #导入traceback模块
+try:
+    代码块
+expect:
+    traceback.print_exc()           #打印回溯信息
+"""
+
+try:
+    1/0                         #制造错误
+except Exception as e:          #捕获异常
+    print(e)                    #打印异常信息
+
+print('\n----------------------------------10----------------------------------------\n')
+
+import traceback
+try:
+    1/0
+except Exception as e:          #捕获异常
+    #traceback.print_exc()       #打印traceback对象信息
+    traceback.print_exc(file=open('log.log', mode='a', encoding='utf-8'))       #把错误信息直接保存到外部文件中
+
+
+print('\n----------------------------------11----------------------------------------\n')
+
+##程序调试
+##print()方法
+
+def foo(s):
+    n = int(s)
+    print('>>>n = %d' % n)          #临时打印n的值
+    return 10 / n
+def main():
+    foo('0')
+main()
+
+print('\n----------------------------------12----------------------------------------\n')
+
+## assert语句可以定义断言，断言用于表达一个表达式，在表达式
+# 条件为false的时候触发异常，而不必等待程序运行后出现崩溃的情况
+
+""" 
+assert expression  等价于
+
+if not expression:
+    raise AssertionError
+
+assert后也可设置参数，
+assert expression [, arguments] 等价于
+if not expression:
+    raise AssertionError(arguments)
+
+"""
+
+def foo(s):
+    n = int(s)
+    assert n !=0, 'n is zero!'  #设置断言
+    return 10 / n
+def main():
+    foo('0')
+main()
+
+
+
+

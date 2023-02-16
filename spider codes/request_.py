@@ -75,7 +75,7 @@ r = requests.get('https://www.baidu.com/')
 print(type(r))
 print(r.status_code)
 print(type(r.text))
-print(r.text)
+print(file=open('r.txt', mode='a', encoding='utf-8'))
 print(r.cookies)
 
 
