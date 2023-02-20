@@ -1,0 +1,13 @@
+file.close():                                     关闭文件
+file.flush():                                     刷新文件
+file.fileno():                                    返回文件描述符
+file.isatty():                                    判断文件是否连接到终端设备
+file.next():                                      返回下一行
+file.read([size]):                                读取指定字节数
+file.readline([size]):                            读取整行
+file.readlines([sizeint])                         读取所有行
+file.seek(offset[, whence])                       设置当前位置
+file.tell():                                      返回当前位置
+file.turncate([size])                             截取文件
+file.write(str)                                   写入文件
+file.writelines(sequence):                        写入字符串序列
