@@ -77,3 +77,73 @@ def good_fibonacci(n):
         (a,b) = good_fibonacci(n-1)
         return (a+b, a)
     
+
+##使用线性递归计算序列元素的和
+
+def liner_sum(S, n):        #序列S前n个元素的和
+    if n == 0:
+        return 0
+    else:
+        return (S, n-1) + S[n-1]
+    
+
+##使用线性递归逆置序列的元素
+def reverse(S, start, stop):
+    if start < stop - 1:
+        S[start], S[stop-1]=S[stop-1],S[start]
+        reverse(S, start+1, stop-1)
+        
+
+##用简单的递归计算幂函数
+def power(x, n):
+    if n == 0:
+        return 1
+    else:
+        return x * power(x, n-1)
+    
+    
+##使用重复的平方计算幂函数
+def power(x, n):
+    if n == 0:
+        return 1
+    else:
+        partial = power(x, n // 2)
+        result = partial * partial
+        if n % 2 == 1:
+            result *= x
+            return result
+        
+##用二路递归计算一个序列的元素之和
+
+def binary_sum(S, start, stop):
+    if start >=stop:
+        return 0
+    elif start == stop-1:
+        return S[start]
+    else:
+        mid = (start + stop)// 2
+        return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+        
+        
+        
+##二分查找算法的非递归实现
+def binary_search_iterative(data, target):
+    low = 0
+    high = len(data)-1
+    while low <=high:
+        mid = (low + high) //2
+        if target == data[mid]:
+            return True
+        elif target < data[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return False
+
+
+##使用迭代逆置一个序列的元素
+def reverse_iterative(S):
+    start, stop = 0, len(S)
+    while start < stop - 1:
+        S[start], S[stop-1] = S[stop-1], S[start]
+        start, stop = start + 1, stop - 1
