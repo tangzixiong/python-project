@@ -45,7 +45,7 @@ class DLinkList(object):
             #将node的next指向_head的头节点
             node.next = self._head
             #将_head的头节点的prev指向node
-            node._head.prev = node
+            self._head.prev = node
             #将_head 指向node
             self._head = node
     
@@ -73,3 +73,71 @@ class DLinkList(object):
                 return True
             cur = cur.next
         return False
+    
+    def insert(self, pos, item):
+        """ 在指定位置添加节点 """
+        if pos <= 0:
+            self.add(item)
+        elif pos > (self.length()-1):
+            self.append(item)
+        else:
+            node = Node(item)
+            cur = self._head
+            count = 0
+            #移动到指定位置的前一个位置
+            while count < (pos-1):
+                count +=1
+                cur = cur.next
+            #将node的prev指向cur
+            node.prev = cur
+            #将node的next指向cur的下一个节点
+            node.next = cur.next
+            #将cur的下一个节点的prev指向node
+            cur.next.prev = node
+            #将cur的next指向node
+            cur.next = node
+
+    def remove(self, item):
+        """ 删除元素 """
+        if self.is_empty():
+            return
+        else:
+            cur = self._head
+            if cur.item == item:
+                #如果首节点的元素即是要删除的元素
+                if cur.next == None:
+                    # 如果链表只有这一个节点
+                    self._head = None
+                else:
+                    #将第二个节点的prev设置为None
+                    cur.next.prev = None
+                    #将_head指向第二个节点
+                    self._head = cur.next
+                return
+            while cur != None:
+                if cur.item ==item:
+                    #将cur的前一个节点的next指向cur的后一个节点
+                    cur.prev.next = cur.next
+                    #将cur的后一个节点的prev指向cur的前一个节点
+                    cur.next.prev = cur.prev
+                    break
+                cur = cur.next
+
+
+####测试####
+
+if __name__ == "__main__":
+    ll = DLinkList()
+    ll.add(1)
+    ll.add(2)
+    ll.append(3)
+    ll.insert(2,4)
+    ll.insert(4,5)
+    ll.insert(0,6)
+    print("length:", ll.length())
+    ll.travel()
+    print(ll.search(3))
+    print(ll.search(4))
+    ll.remove(1)
+    print("length:", ll.length())
+    ll.travel()
