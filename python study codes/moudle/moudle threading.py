@@ -32,37 +32,37 @@
 # 在创建线程时必须先定义一个继承threading.Thread的类，
 # 然后重写子类中的run()方法，使用start()方法启动线程。
 
-# import threading
-# class threadTest(threading.Thread):              #类必须继承threading.Thread
+import threading
+class threadTest(threading.Thread):              #类必须继承threading.Thread
     
-#     def __init__(self, args) -> None:            #args为传入线程的参数，可根据自己的需求进行定义
+    def __init__(self, args) -> None:            #args为传入线程的参数，可根据自己的需求进行定义
         
-#         super(threadTest, self).__init__()      #初始化super()内的必须与类名一样
-#         self.args = args
+        super(threadTest, self).__init__()      #初始化super()内的必须与类名一样
+        self.args = args
     
-#     def run(self) -> None:                      #定义run()方法，主要写线程的执行内容
-#         print('test thread running......')
-#         print('args:', self.args)
-#         return super().run()
+    def run(self) -> None:                      #定义run()方法，主要写线程的执行内容
+        print('test thread running......')
+        print('args:', self.args)
+        return super().run()
     
-# if __name__ == '__main__':
-#     test = threadTest('just test')              #实例化
-#     test.start()                                #启动线程，即运行run()方法
+if __name__ == '__main__':
+    test = threadTest('just test')              #实例化
+    test.start()                                #启动线程，即运行run()方法
         
         
         
 # ##使用函数的方式创建线程
-# import threading
+import threading
 
-# def threadTest(arg):
-#     print('test thread running......')
-#     print('args:', arg)
+def threadTest(arg):
+    print('test thread running......')
+    print('args:', arg)
     
 
-# if __name__ == '__main__':
-#     # target 传入函数名，注意不要写参数； args target传入的函数需要传入的参数，注意传入参数以元组的形式
-#     thread = threading.Thread(target=threadTest, args=('just test',))
-#     thread.start()                              #启动线程
+if __name__ == '__main__':
+    # target 传入函数名，注意不要写参数； args target传入的函数需要传入的参数，注意传入参数以元组的形式
+    thread = threading.Thread(target=threadTest, args=('just test',))
+    thread.start()                              #启动线程
     
     
 #除 start() 方法外，threading.Thread类还提供了以下方法

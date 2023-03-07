@@ -31,31 +31,31 @@ logging.info('info信息')
 
 ##使用logging.basicConfig()方法设置日志信息的格式和日志函数的响应级别
 
-import logging          #导入日志模块
-logging.basicConfig(
-    format = '%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s:%(message)s', 
-    level=logging.DEBUG)
+# import logging          #导入日志模块
+# logging.basicConfig(
+#     format = '%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s:%(message)s', 
+#     level=logging.DEBUG)
 
-logging.debug('debug信息')
-logging.info('info信息')
-logging.warning('warning信息')
-logging.error('error信息')
-logging.critical('critial信息')
+# logging.debug('debug信息')
+# logging.info('info信息')
+# logging.warning('warning信息')
+# logging.error('error信息')
+# logging.critical('critial信息')
 
 
-print('\n----------------------------------14----------------------------------------\n')
+# print('\n----------------------------------14----------------------------------------\n')
 
-##演示使用logging模块把日志信息输出到外部文件
+# ##演示使用logging模块把日志信息输出到外部文件
 
-import logging
-#配置日志文件和日志信息的格式
-logging.basicConfig( filename='test.log',
-                    format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]',
-                     level=logging.DEBUG,
-                      filemode='a',
-                       datefmt='%Y-%m-%d%I:%M:%S %p' )
-s = '0'
-n = int(s)
-logging.info('n = %d' % n)   #保存n的值到日志文件中
-print(10 / n)
+# import logging
+# #配置日志文件和日志信息的格式
+# logging.basicConfig( filename='test.log',
+#                     format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]',
+#                      level=logging.DEBUG,
+#                       filemode='a',
+#                        datefmt='%Y-%m-%d%I:%M:%S %p' )
+# s = '0'
+# n = int(s)
+# logging.info('n = %d' % n)   #保存n的值到日志文件中
+# print(10 / n)
 

@@ -15,49 +15,49 @@
 
 
 
-def quick_sort(alist, start, end):
-    """ 快速排序 """
+# def quick_sort(alist, start, end):
+#     """ 快速排序 """
 
-    #递归的退出条件
-    if start >= end:
-        return 
+#     #递归的退出条件
+#     if start >= end:
+#         return 
     
-    #设定起始元素为要寻找位置的基准元素
-    mid = alist[start]
+#     #设定起始元素为要寻找位置的基准元素
+#     mid = alist[start]
 
-    #low为序列左边的由左向右移动的游标
-    low = start
+#     #low为序列左边的由左向右移动的游标
+#     low = start
 
-    #high为序列右边的由右向左移动的游标
-    high = end
+#     #high为序列右边的由右向左移动的游标
+#     high = end
 
-    while low < high:
-        #如果low与high 未重合，high指向的元素不比基准元素小， 则high向左移动
-        while low < high and alist[high] >= mid:
-            high -= 1
+#     while low < high:
+#         #如果low与high 未重合，high指向的元素比基准元素大， 则high向左移动
+#         while low < high and alist[high] >= mid:
+#             high -= 1
 
-            #将high指向的元素放到low的位置上
-            alist[low] = alist[high]
+#             #将high指向的元素放到low的位置上
+#             alist[low] = alist[high]
 
-        #如果low与high未重合， low指向的元素比基准元素小，则low向右移动
-        while low < high and alist[low] < mid:
-            low += 1
-            #将low指向的元素放到high的位置上
-            alist[high] = alist[low]
+#         #如果low与high未重合， low指向的元素比基准元素小，则low向右移动
+#         while low < high and alist[low] < mid:
+#             low += 1
+#             #将low指向的元素放到high的位置上
+#             alist[high] = alist[low]
 
-    #退出循环后， low与high重合， 此时所指位置为基准元素的正确位置
-    #将基准元素放到该位置
-    alist[low] = mid
+#     #退出循环后， low与high重合， 此时所指位置为基准元素的正确位置
+#     #将基准元素放到该位置
+#     alist[low] = mid
 
-    #对基准元素左边的子序列进行快速排序
-    quick_sort(alist, start, low-1)
+#     #对基准元素左边的子序列进行快速排序
+#     quick_sort(alist, start, low-1)
 
-    #对基准元素右边的子序列进行快速排序
-    quick_sort(alist, low+1, end)
+#     #对基准元素右边的子序列进行快速排序
+#     quick_sort(alist, low+1, end)
 
-alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-quick_sort(alist, 0, len(alist)-1)
-print(alist)
+# alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+# quick_sort(alist, 0, len(alist)-1)
+# print(alist)
 
 
 
@@ -92,3 +92,62 @@ print(alist)
 # lists=[5, 4, 3, 2, 1]
 # quick_sort(lists, 0, len(lists)-1)
 # print(alist)
+
+
+
+####################################################################
+
+# https://www.techiedelight.com/zh/quicksort/
+
+def swap(A, i, j):
+
+    temp = A[i]
+    A[i] = A[j]
+    A[j] = temp
+
+#使用 Lomuto 分区方案进行分区
+def partition(a, start, end):
+
+    #从列表中选择最右边的元素作为枢轴
+    pivot = a[end]
+
+    #小于枢轴 的元素将被推到pIndex的左侧
+    #元素超过枢轴将被推到pIndex的右侧
+    #平等元素可以去任何一种方式
+    pIndex = start
+
+    #每次我们找到一个小于或等于枢轴的元素，
+    #pIndex增加，并且该元素将被放置前枢轴
+    for i in range(start, end):
+        if a[i] <= pivot:
+            swap(a, i, pIndex)
+            pIndex = pIndex + 1
+
+    #用枢轴交换pIndex
+    swap(a, end, pIndex)
+
+    return pIndex    #枢轴元素的索引
+
+#快速排序
+def quicksort(a, start, end):
+
+    #基础条件
+    if start >= end:
+        return
+    #跨枢轴重新排列元素
+    pivot = partition(a, start, end)
+
+    #在包含小于主元的元素的子列表上重复出现
+    quicksort(a, start, pivot - 1)
+
+    #在包含元素大于枢轴的子列表上重复出现
+    quicksort(a, pivot + 1, end)
+
+if __name__ == '__main__':
+
+    a = [9, -3, 5, 2, 6, 8, -6, 1, 3]
+    quicksort(a, 0, len(a) - 1)
+    print(a)
+
+
+##时间复杂度： 最优O(nlogn)  最坏O(n^2)  稳定性， 不稳定
