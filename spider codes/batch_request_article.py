@@ -1,6 +1,8 @@
 
 #批量爬取下载小说至txt文本
 
+#原文链接：https://blog.csdn.net/weixin_54852327/article/details/115916146
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -33,7 +35,7 @@ if __name__ == '__main__':
         html = req.text
         bes = BeautifulSoup(html, 'lxml')
         texts = bes.find('div', id = 'content')
-        texts_list = texts.text.split('\xa0'*4)
+        texts_list = texts.text.split('\xa0')
         with open('./spider codes/novels/'+ tar[1] + ".txt", "w") as file:
             for line in texts_list:
                 file.write(line+"\n")

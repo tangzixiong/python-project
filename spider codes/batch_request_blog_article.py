@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def geturl():
-    url = "http://www.ityouknow.com/python.html"
+    url = "http://www.ityouknow.com/python.html/"
     header = {"user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"}
     req = requests.get(url = url, headers = header)
     req.encoding = 'utf-8'
