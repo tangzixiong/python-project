@@ -1,5 +1,7 @@
 ## Python的日志记录工具----logging模块
 
+# http://www.ityouknow.com/python/2019/10/13/python-logging-032.html
+
 
 ## logging 中的几个概念：
 
@@ -24,10 +26,10 @@
 
 
 #演示将日志信息打印在控制台
-import logging
-logging.debug('debug信息')
-logging.warning('只有这个会输出......')     # 默认的等级是WARNING, 输出：WARNING:root:只有这个会输出......
-logging.info('info信息')
+# import logging
+# logging.debug('debug信息')
+# logging.warning('只有这个会输出......')     # 默认的等级是WARNING, 输出：WARNING:root:只有这个会输出......
+# logging.info('info信息')
 
 ##使用logging.basicConfig()方法设置日志信息的格式和日志函数的响应级别
 

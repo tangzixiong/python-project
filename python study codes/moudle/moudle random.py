@@ -1,4 +1,7 @@
-#随机数模块
+##随机数模块
+
+# http://www.ityouknow.com/python/2019/10/12/python-random-031.html
+
 #random.random():用于生成一个-~1.0的随机浮点数(0<=n<1.0)
 #random.uniform(a,b):用于生成一个指定范围内的随机浮点数(a<=n<b)
 #random.randint(a,b):用于生成一个指定范围内的随机整数(a<=n<=b)
