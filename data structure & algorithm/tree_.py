@@ -19,7 +19,7 @@ class Tree(object):
         """ 为树添加节点 """
         node = Node(elem)
         #如果树是空的，则对根节点赋值
-        if self.root ==None:
+        if self.root == None:
             self.root = node
         else:
             queue = []

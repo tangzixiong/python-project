@@ -1,6 +1,6 @@
 ### json & pickle
 
-#http://www.ityouknow.com/python/2019/10/18/python-json&pickle-034.html
+# http://www.ityouknow.com/python/2019/10/18/python-json&pickle-034.html
 
 # 日常开发中，对数据进行序列化和反序列化是常见的数据操作，Python提供了两个模块方便开发者实现数据的序列化操作，即 json 模块和 pickle 模块。
 
