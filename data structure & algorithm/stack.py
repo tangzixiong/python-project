@@ -52,3 +52,65 @@ if __name__ == "__main__":
     print(stack.pop())
     print(stack.pop())
     print(stack.pop())
+
+
+
+print('\n------------------------------------------------------------------\n')
+
+# 通过实例化 Stack 类执行 以上stack中的操作。注意，Stack 类的定义是从 pythonds 模块导入的。
+
+from pythonds.basic.stack import Stack
+
+s = Stack()
+
+print(s.isEmpty())
+s.push(4)
+s.push('dog')
+print(s.peek())
+s.push(True)
+print(s.size())
+print(s.isEmpty())
+s.push(8.4)
+print(s.pop())
+print(s.pop())
+print(s.size())
+
+
+
+
+
+print('\n------------------------------------------------------------------\n')
+
+
+##  括号匹配
+# 从空栈开始，从左到右处理括号字符串。如果一个符号是一个开始符号，将其作为一个信号，
+# 对应的结束符号稍后会出现。另一方面，如果符号是结束符号，弹出栈，只要弹出栈的开始
+# 符号可以匹配每个结束符号，则括号保持匹配状态。如果任何时候栈上没有出现符合开始符号
+# 的结束符号，则字符串不匹配。最后，当所有符号都被处理后，栈应该是空的
+
+
+from pythonds.basic.stack import Stack
+
+def parChecker(symbolString):
+    s = Stack()
+    balanced = True
+    index = 0
+    while index < len(symbolString) and balanced:
+        symbol = symbolString[index]
+        if symbol == "(":
+            s.push(symbol)
+        else:
+            if s.isEmpty():
+                balanced = False
+            else:
+                s.pop()
+
+        index = index + 1
+
+    if balanced and s.isEmpty():
+        return True
+    else:
+        return False
+    
+print(parChecker('((()))'))
+print(parChecker('(()'))
