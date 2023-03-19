@@ -99,3 +99,37 @@ if __name__ == "__main__":
     print(deque.remove_front())
     print(deque.remove_rear())
     print(deque.remove_rear())
+
+
+
+
+
+##########################################################
+
+##列的典型应用之一是模拟需要以 FIFO 方式管理数据的真实场景。首先，让我们看看孩子们的游戏烫手山芋，
+# 在这个游戏中，孩子们围成一个圈，并尽可能快的将一个山芋递给旁边的孩子。在某一个时间，
+# 动作结束，有山芋的孩子从圈中移除。游戏继续开始直到剩下最后一个孩子。
+
+# 我们将模拟这个烫山芋的过程。我们的程序将输入名称列表和一个称为 num 常量用于报数。
+# 它将返回以 `num` 为单位重复报数后剩余的最后一个人的姓名。为了模拟这个圈，我们使用队列。
+# 假设拿着山芋的孩子在队列的前面。当拿到山芋的时候，这个孩子将先出列再入队列，把他放在队列的最后。
+# 经过 num 次的出队入队后，前面的孩子将被永久移除队列。并且另一个周期开始，继续此过程，直到只剩下一个名字（队列的大小为 1）。
+
+from pythonds.basic.queue import Queue
+
+def hotPotato(namelist, num):
+    simqueue = Queue()
+    for name in namelist:
+        simqueue.enqueue(name)
+
+    while simqueue.size() > 1:
+        for i in range(num):
+            simqueue.enqueue(simqueue.dequeue())
+
+        simqueue.dequeue()
+
+    return simqueue.dequeue()
+
+print(hotPotato(["Bill","David", "Susan", "Jane", "Kent", "Brad"],7))
+
+
