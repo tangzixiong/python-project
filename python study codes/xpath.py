@@ -29,14 +29,7 @@
                <li>苹果</li>
             </ul>
         </div>
-        <div>
-            <h4>电脑品牌商<span style="margin-left:10px">3</span></h4>
-            <ul class="ul" style="color:red">
-                <li>戴尔</li> 
-                <li>机械革命</li> 
-                <li>ThinkPad</li>
-            </ul>
-        </div>
+        
     </body>
 </html> 
 
