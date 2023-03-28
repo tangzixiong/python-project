@@ -40,7 +40,7 @@
 
 
 # plt.plot(range(100), cost_list)
-# plt.plot(np.array(cost_list), color="r", marker='.')
+# plt.plot(np.array(cost_list), color="b", marker='.')
 # plt.ylabel('cost')
 # plt.xlabel('epoch')
 # plt.show()
@@ -68,19 +68,22 @@ def loss(x, y):
 def gradient(x, y):
     return 2*x*(x*w-y)
 
-_cost = []
+_loss = []
 for epoch in range(100):
     for x, y in zip(x_data, y_data):
-        grad_val = gradient(x, y)
-        w -= 0.01*grad_val
-        cost_val = loss(x, y)
-        _cost.append(cost_val)
-           
-    print("progress: ",epoch, "W= ", w, "loss = ", cost_val)
+        grad = gradient(x, y)
+        w -= 0.01*grad
+        #print("\tgrad:", x, y, grad)
+        l = loss(x, y)    
+        
+    print("progress: ",epoch, "W= ", w, "loss = ", l)
+    _loss.append(l)
+
 print("Predict(after training)",4,forward(4))
 
 #绘图
-plt.plot(range(100),  _cost)
-plt.ylabel("Cost")
+plt.plot(range(100), _loss)
+plt.plot(np.array(_loss), color="r", marker='.')
+plt.ylabel("lost")
 plt.xlabel('Epoch')
 plt.show()
