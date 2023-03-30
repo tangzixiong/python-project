@@ -14,7 +14,7 @@ y_data = torch.Tensor([[0], [0], [1]])
 class LogisticRegressionModel(torch.nn.Module):
     def __init__(self):
         super(LogisticRegressionModel, self).__init__()
-        self.linear = torch.nn.Linear(1, 1)
+        self.linear = torch.nn.Linear(1, 1)                         #torch.nn.Linear(size of each input sample=1, size of each output sample = 1)
     
     
     def forward(self, x):
