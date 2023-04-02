@@ -24,7 +24,7 @@ class DiabetesDataset(Dataset):
     def __len__(self):
         return self.len
 
-dataset = DiabetesDataset('diabetes.csv')
+dataset = DiabetesDataset('D:\git space\git-demo\ML\diabetes.csv')
 #num_workers表示多线程的读取
 train_loader = DataLoader(dataset=dataset, batch_size=32, shuffle=True, num_workers=2)
 
@@ -48,7 +48,7 @@ criterion = torch.nn.BCELoss(size_average=True)
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 if __name__ =='__main__':
-    for epoch in range:
+    for epoch in range(2):
         #enumerate: 可获得当前迭代的次数
         for i, data in enumerate(train_loader, 0):
             #准备数据dataloader会将batch_size返回的数据整合成矩阵加载

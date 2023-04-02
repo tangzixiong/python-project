@@ -7,7 +7,7 @@
 import torch
 import numpy as np
 #读取文件，一般GPU只支持32位浮点数
-xy = np.loadtxt("diabetes.csv", delimiter=',', dtype = np.float32)
+xy = np.loadtxt("D:\git space\git-demo\ML\diabetes.csv", delimiter=',', dtype = np.float32)
 #-1行-1列不取
 x_data = torch.from_numpy(xy[:-1, :-1])
 #单取-1列作为矩阵
