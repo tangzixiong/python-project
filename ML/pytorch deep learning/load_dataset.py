@@ -24,7 +24,7 @@ class DiabetesDataset(Dataset):
     def __len__(self):
         return self.len
 
-dataset = DiabetesDataset('D:\git space\git-demo\ML\diabetes.csv')
+dataset = DiabetesDataset('D:\git space\git-demo\ML\data\diabetes.csv')
 #num_workers表示多线程的读取
 train_loader = DataLoader(dataset=dataset, batch_size=32, shuffle=True, num_workers=2)
 
