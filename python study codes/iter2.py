@@ -1,5 +1,8 @@
 #创建一个返回数字的迭代器，初始值为 1，逐步递增 1
 
+## isinstance(): 判断一个对象是否是某个类的实例
+## python————迭代器：http://www.ityouknow.com/python/2019/09/21/python-iterator-019.html
+
 class MyNumbers:
     def __iter__(self): 
         self.a = 1           # iter() 方法返回一个特殊的迭代器对象， 这个迭代器对象实现了 next() 方法并通过 StopIteration 异常标识迭代的完成

@@ -2,7 +2,6 @@
 
 # http://www.ityouknow.com/python/2019/10/13/python-logging-032.html
 
-
 ## logging 中的几个概念：
 
     # Logger：日志记录器，是应用程序中可以直接使用的接口。

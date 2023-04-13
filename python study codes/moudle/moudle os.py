@@ -1,6 +1,10 @@
 ## os 模块
 
 # 原文链接：https://blog.csdn.net/xw1680/article/details/125563034
+# Python 标准库之 os 模块详解: http://www.ityouknow.com/python/2019/10/09/python-os-demonstration-026.html
+
+#os模块提供的就是各种 Python 程序与操作系统进行交互的接口。通过使用os模块，一方面可以方便地与操作系统进行交互，
+#另一方面页可以极大增强代码的可移植性。
 
 # os 模块是Python内置的与操作系统中的文件系统相关的模块，该模块依赖于操作系统。通常情况下，
 # 如不特别指出，该模块提供的方法、属性在Windows 和 UNIX(Linux 和Mac OS X)系统上都是可用的。

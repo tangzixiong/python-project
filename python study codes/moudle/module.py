@@ -2,6 +2,11 @@
 #!/usr/bin/python3
 # 文件名: using_sys.py
 
+#python标准库 
+# http://www.ityouknow.com/python/2019/09/28/python-standard-library01-023.html
+# http://www.ityouknow.com/python/2019/10/06/python-standard-library02-024.html
+
+
 import sys
 
 print('命令行参数如下:')
