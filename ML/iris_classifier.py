@@ -4,14 +4,14 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
+from sklearn.svm import SVC                             #支持向量分类
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.neural_network import MLPClassifier
+from sklearn.neural_network import MLPClassifier        #多层感知机
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report       #metrics 度量  检验机器学习模型效果的定量指标模块
 from sklearn.datasets import load_iris
-import argparse
+import argparse                                         #命令项选项与参数解析模块
 
 
 ## 设置参数
@@ -23,8 +23,8 @@ args = vars(ap.parse_args())
 models = {
     "knn": KNeighborsClassifier(n_neighbors=1),
     "naive_bayes": GaussianNB(),
-    "logit": LogisticRegression(solver="lbfgs", multi_class="auto"),
-    "svm": SVC(kernel="rbf", gamma="auto"),
+    "logit": LogisticRegression(solver="lbfgs", multi_class="auto"),        # 求解器的选择，由参数"solver"控制，共有五种选择，libliner: 坐标下降法，二分类  lbfgs: 拟牛顿法的一种,  newton-cg: 牛顿法-共轭梯度法,   sag: 随机平均梯度下降,  saga
+    "svm": SVC(kernel="rbf", gamma="auto"),               #常用核函数， 线性核函数kernel='linear'，多项式核函数kernel='poly'，径向基核函数kernel='rbf'，sigmod核函数kernel='sigmod'       高斯核中的gamma
     "decision_tree": DecisionTreeClassifier(),
     "random_forest": RandomForestClassifier(n_estimators=100),
     "mlp": MLPClassifier()
