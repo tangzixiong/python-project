@@ -1,5 +1,3 @@
-##图像数据建模
-
 ## 导入工具库
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -17,9 +15,8 @@ import numpy as np
 import argparse
 import os
 
-# 采用特征提取方法，主要是统计图像颜色通道的均值和标准差信息，总共是RGB 3个通道，
-# 每个通道各计算均值和标准差，然后结合在一起，得到一个六维的特征
 
+## 抽取图像特征
 def extract_color_stats(image):
     '''
     将图片分成 RGB 三通道，然后分别计算每个通道的均值和标准差，然后返回
@@ -39,6 +36,7 @@ ap.add_argument("-m", "--model", type=str, default="knn",
                 help="type of python machine learning model to use")
 args = vars(ap.parse_args())
 
+
 ## 定义一个保存模型的字典，根据 key 来选择加载哪个模型
 models = {
     "knn": KNeighborsClassifier(n_neighbors=1),
@@ -56,6 +54,8 @@ print("抽取图像特征中...")
 imagePaths = paths.list_images(args['dataset'])
 data = []
 labels = []
+
+
 ## 循环遍历所有的图片数据
 for imagePath in imagePaths:
     # 加载图片，然后计算图片的颜色通道统计信息
@@ -69,7 +69,7 @@ for imagePath in imagePaths:
 le = LabelEncoder()
 labels = le.fit_transform(labels)
 ## 进行训练集和测试集的划分，80%数据作为训练集，其余20%作为测试集
-trainX, testX, trainY, testY = train_test_split(data, labels, test_size=0.2)
+trainX, testX, trainY, testY = train_test_split(data, labels, random_state=3, test_size=0.2)
 print('trainX numbers={}, testX numbers={}'.format(len(trainX), len(testX)))
 
 
